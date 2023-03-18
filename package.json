@@ -1,23 +1,40 @@
 {
-  "name": "mmbaydin",
-  "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  "dependencies": {
-    "expo": "~48.0.6",
-    "expo-status-bar": "~1.4.4",
-    "react": "18.2.0",
-    "react-native": "0.71.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.0.14",
-    "typescript": "^4.9.4"
-  },
-  "private": true
+	"name": "mmbaydin",
+	"version": "1.0.0",
+	"main": "node_modules/expo/AppEntry.js",
+	"scripts": {
+		"start": "expo start",
+		"android": "expo start --android",
+		"ios": "expo start --ios",
+		"web": "expo start --web --https",
+		"lint": "eslint --ext .jsx --ext .tsx --ext .ts --ext .js --ext .test.js ./",
+		"lint:fix": "eslint --fix --ext .jsx --ext .tsx --ext .ts --ext .js --ext .test.js ./",
+		"type-check": "tsc -p tsconfig.json",
+		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+		"format:check": "prettier --check ./src/"
+	},
+	"dependencies": {
+		"expo": "~48.0.6",
+		"expo-status-bar": "~1.4.4",
+		"react": "18.2.0",
+		"react-native": "0.71.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.20.0",
+		"@types/react": "~18.0.14",
+		"@typescript-eslint/eslint-plugin": "^5.55.0",
+		"@typescript-eslint/parser": "^5.55.0",
+		"eslint": "^8.36.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.7.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"lefthook": "^1.3.6",
+		"prettier": "^2.8.4",
+		"typescript": "^4.9.4"
+	},
+	"private": true
 }

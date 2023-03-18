@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    lint:
+      glob: "*.{ts,tsx}"
+      run: yarn lint:fix
+pre-push:
+  commands:
+    test:
+      # run: yarn test

@@ -16,6 +16,7 @@ export const Routes = () => {
           screenOptions={{
             gestureEnabled: Platform.OS === 'ios',
           }}
+          initialRouteName="HomeScreen"
         >
           {routes.map((route) => (
             <Stack.Screen key={route.name} name={route.name} component={route.component} options={route.options} />

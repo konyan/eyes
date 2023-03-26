@@ -9,7 +9,6 @@ const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProps>();
 
   const goToList = () => {
-    console.log('goToList');
     navigation.navigate('SearchScreen');
   };
 

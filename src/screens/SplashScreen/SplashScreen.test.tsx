@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native-paper';
 import SplashLogo from '../../../assets/splash.png';
 import SplashScreen from './SplashScreen';
-
 describe('SplashScreen', () => {
   const setupUI = () => {
     const compo = <Text>HomeScreen</Text>;

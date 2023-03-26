@@ -1,6 +1,17 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components": ["src/components/index.ts"],
+      "@hooks": ["src/hooks/index.ts"],
+      "@routes": ["src/routes/index.ts"],
+      "@screens": ["src/screens/index.ts"],
+      "@core": ["src/core/index.ts"],
+      "@svgIcons": ["src/svgIcons/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }

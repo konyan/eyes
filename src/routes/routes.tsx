@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import tw from 'twrnc';
-import { mainScreens } from './routesConfig';
+import { mainScreens } from './routeConfig';
 
 const Stack = createStackNavigator();
 

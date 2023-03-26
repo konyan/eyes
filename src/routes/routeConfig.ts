@@ -1,11 +1,4 @@
+import { EyeRoute } from './EyeRoutes';
 import IScreen from './IScreen';
 
-export const mainScreens: IScreen<never>[] = [
-  {
-    name: 'Main',
-    component: MainRoutes,
-    options: {
-      headerShown: false,
-    },
-  },
-];
+export const mainScreens: IScreen<never>[] = [...EyeRoute];

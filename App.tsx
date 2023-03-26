@@ -1,4 +1,4 @@
-import { config } from '@core';
+import { config, injectWebCss } from '@core';
 import { NavigationContainer } from '@react-navigation/native';
 import { Routes } from '@routes';
 import Constants from 'expo-constants';
@@ -7,6 +7,8 @@ import { Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import SplashLogo from './assets/splash.png';
 import { SplashScreen } from './src/screens';
+
+injectWebCss();
 
 export default function App() {
   const prefix = Linking.createURL('/');

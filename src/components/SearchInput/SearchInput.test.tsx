@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 import SearchInput from './SearchInput';
 
 describe('SearchInput', () => {

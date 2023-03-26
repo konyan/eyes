@@ -9,7 +9,6 @@ const SearchScreen = () => {
   const navigation = useNavigation<SearchScreenNavigationProps>();
 
   const goToLoading = () => {
-    console.log('goToLoading');
     navigation.navigate('LoadingWheelScreen');
   };
   return (

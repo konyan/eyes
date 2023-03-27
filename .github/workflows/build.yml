@@ -23,7 +23,7 @@ jobs:
         run: npm run test:coverage
 
       - name: SonarCloud scan
-        uses: SonarSource/sonarcloud-github-action@v1
+        uses: SonarSource/sonarcloud-github-action@master
         with:
           organization: konyan
           project: eyes

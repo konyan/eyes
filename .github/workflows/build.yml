@@ -1,0 +1,31 @@
+name: Sonar Cloud - PR Analysis
+
+# Controls when the action will run. Triggers the workflow on pull request
+# events but only for the master branch
+on:
+  pull_request:
+    branches:
+      - master
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  sonarcloud:
+    name: Build (Sonar Cloud)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Node install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm run test:coverage
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

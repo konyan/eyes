@@ -229,6 +229,12 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Library Usage
+
+- [expo](https://expo.dev)
+- [React Navigation](https://reactnavigation.org/)
+- [Tailwind Css](https://www.npmjs.com/package/twrnc)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 

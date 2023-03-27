@@ -5,8 +5,7 @@ name: Sonar Cloud - PR Analysis
 on:
   pull_request:
     branches:
-      - main
-      - release-*
+      - master
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

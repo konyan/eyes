@@ -5,6 +5,7 @@ import Constants from 'expo-constants';
 import * as Linking from 'expo-linking';
 import { Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import ThemeProvider from 'src/context/ThemeContext/ThemeContext';
 import SplashLogo from './assets/splash.png';
 import { SplashScreen } from './src/screens';
 
@@ -16,20 +17,22 @@ export default function App() {
 
   return (
     <PaperProvider>
-      <SplashScreen image={SplashLogo}>
-        <NavigationContainer
-          documentTitle={{
-            formatter: () => 'MM Baydin',
-          }}
-          linking={{
-            prefixes: [prefix, `${scheme}://`],
-            config: config,
-          }}
-          fallback={<Text>Loading...</Text>}
-        >
-          <Routes />
-        </NavigationContainer>
-      </SplashScreen>
+      <ThemeProvider>
+        <SplashScreen image={SplashLogo}>
+          <NavigationContainer
+            documentTitle={{
+              formatter: () => 'MM Baydin',
+            }}
+            linking={{
+              prefixes: [prefix, `${scheme}://`],
+              config: config,
+            }}
+            fallback={<Text>Loading...</Text>}
+          >
+            <Routes />
+          </NavigationContainer>
+        </SplashScreen>
+      </ThemeProvider>
     </PaperProvider>
   );
 }

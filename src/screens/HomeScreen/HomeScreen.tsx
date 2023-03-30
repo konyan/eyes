@@ -3,7 +3,8 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProps } from '@routes';
 import React, { useContext, useState } from 'react';
-import { StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChipButton, GradientButton } from 'src/components';
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
@@ -28,7 +29,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={tw`flex-1  pt-[${StatusBar.currentHeight}]`}>
+    <SafeAreaView style={tw`flex-1 `}>
       <View style={tw`h-1/6 items-end`}>
         <TouchableOpacity activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
           {themeValue === 'dark' ? (
@@ -56,7 +57,7 @@ const HomeScreen = () => {
       <View style={tw`items-center `}>
         <GradientButton onPress={goToList} text="ဗေဒင်မေးမည်" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

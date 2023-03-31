@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useState } from 'react';
 
 type ThemeContextProps = {
   themeValue: string | null;
@@ -31,10 +31,18 @@ export interface ThemeProviderProps {
 }
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [themeValue, setThemeValue] = useState<string | null>(async () => {
-    const storedValue = await AsyncStorage.getItem('Theme');
-    return storedValue != null ? storedValue : 'light';
-  });
+  const [themeValue, setThemeValue] = useState<string>('light');
+
+  useEffect(() => {
+    const retrieveTheme = async () => {
+      const storedValue = await AsyncStorage.getItem('Theme');
+      if (storedValue != null) {
+        setThemeValue(storedValue);
+      }
+    };
+
+    retrieveTheme();
+  }, []);
 
   const setTheme = useCallback(async (theme: string) => {
     save(theme);

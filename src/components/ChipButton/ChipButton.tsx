@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Chip } from 'react-native-paper';
+import tw from 'twrnc';
 
 type ChipButtonProps = {
   onPress: () => void;
@@ -16,20 +17,10 @@ const ChipButton = ({ onPress, text, selected }: ChipButtonProps) => {
         onPress={onPress}
         selected={selected}
         testID="chipButton-test"
-        style={{
-          alignSelf: 'flex-start',
-          height: 40,
-          borderRadius: 20,
-          marginBottom: 15,
-          marginHorizontal: 10,
-          elevation: 3,
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.4,
-          shadowRadius: 2,
-          borderColor: '#494949',
-        }}
+        selectedColor="#000"
+        style={tw`shadow border-2  self-start h-[40px] rounded-20 mb-2 mx-2 bg-slate-300 border-[#b6c6d8] 	`}
       >
-        <Text style={{ fontSize: 12 }}>{text}</Text>
+        <Text style={tw`text-[12px] text-black`}>{text}</Text>
       </Chip>
     </View>
   );

@@ -14,9 +14,15 @@ const GradientButton = ({ onPress, text }: GradientButtonProps) => {
       colors={['#B23BF3', '#8848F8']}
       start={[1, 1]}
       end={[0, 0]}
-      style={tw`rounded-3xl w-2/3 items-center`}
+      style={tw`rounded-3xl w-2/3
+      `}
     >
-      <TouchableOpacity activeOpacity={0.8} onPress={onPress} testID="BUTTON" style={tw`p-5 mx-3`}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={onPress}
+        testID="BUTTON"
+        style={tw`p-5 w-full mx-3 items-center jusify-center`}
+      >
         <Text style={tw`text-base font-semibold tracking-widest	 text-white px-5	`}>{text}</Text>
       </TouchableOpacity>
     </LinearGradient>

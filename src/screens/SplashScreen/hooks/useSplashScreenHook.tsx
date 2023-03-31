@@ -1,5 +1,7 @@
+import { auth } from '@core';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { signInAnonymously } from 'firebase/auth';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Animated } from 'react-native';
 
@@ -38,10 +40,23 @@ const useSplashScreenHook = ({ image }: useSplashScreenHookProps) => {
     }
   }, [isAppReady, animation, fontsLoaded]);
 
+  const getUser = () => {
+    signInAnonymously(auth)
+      .then((user) => {
+        // Signed in..
+        console.log('EO', user.user.uid);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('ERROR', errorCode, errorMessage);
+      });
+  };
+
   const onImageLoaded = useCallback(async () => {
     try {
       await SplashScreen.hideAsync();
-      await Promise.all([]);
+      getUser();
     } catch (e) {
       // handle or log error
     } finally {

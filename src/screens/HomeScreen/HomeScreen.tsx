@@ -4,9 +4,12 @@ import { HomeScreenNavigationProps } from '@routes';
 import React from 'react';
 import { Text, View } from 'react-native';
 import tw from 'twrnc';
+import { useHome } from './hooks';
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProps>();
+
+  useHome();
 
   const goToList = () => {
     navigation.navigate('SearchScreen');

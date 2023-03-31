@@ -8,7 +8,7 @@ describe('SearchInput', () => {
     const handleClear = jest.fn();
 
     const { getByPlaceholderText } = render(
-      <SearchInput onChangeText={onChangeText} value="" handleClear={handleClear} />,
+      <SearchInput handleChange={onChangeText} value="" handleClear={handleClear} />,
     );
 
     const input = getByPlaceholderText('ရှာရန်...');
@@ -21,7 +21,7 @@ describe('SearchInput', () => {
     const handleClear = jest.fn();
 
     const { getByPlaceholderText } = render(
-      <SearchInput onChangeText={onChangeText} value="" handleClear={handleClear} />,
+      <SearchInput handleChange={onChangeText} value="" handleClear={handleClear} />,
     );
 
     const input = getByPlaceholderText('ရှာရန်...');
@@ -36,7 +36,7 @@ describe('SearchInput', () => {
     const handleClear = jest.fn();
 
     const { getByTestId } = render(
-      <SearchInput onChangeText={onChangeText} value="Test input" handleClear={handleClear} />,
+      <SearchInput handleChange={onChangeText} value="Test input" handleClear={handleClear} />,
     );
 
     const clearButton = getByTestId('clear-button');
@@ -49,7 +49,7 @@ describe('SearchInput', () => {
     const handleClear = jest.fn();
 
     const { getByTestId } = render(
-      <SearchInput onChangeText={onChangeText} value="Test input" handleClear={handleClear} />,
+      <SearchInput handleChange={onChangeText} value="Test input" handleClear={handleClear} />,
     );
 
     const clearButton = getByTestId('clear-button');

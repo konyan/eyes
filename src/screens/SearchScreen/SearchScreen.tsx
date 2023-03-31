@@ -1,10 +1,8 @@
 import Entypo from '@expo/vector-icons/Entypo';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
-import { SearchScreenNavigationProps } from '@routes';
 import React, { useContext, useState } from 'react';
-import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import SearchInput from 'src/components/SearchInput/SearchInput';
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
@@ -35,11 +33,10 @@ const data: Item[] = [
 
 const iconData = new Array(5).fill('');
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [text, setText] = useState<string>('');
-  const { width } = useWindowDimensions();
-  const navigation = useNavigation<SearchScreenNavigationProps>();
+  // const navigation = useNavigation<SearchScreenNavigationProps>();
 
   const goToLoading = () => {
     navigation.navigate('LoadingWheelScreen');

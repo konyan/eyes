@@ -23,18 +23,6 @@ const SpinningWheel = ({ navigation }) => {
   const handleClick = () => {
     startAnimation();
     setIsClicked(true);
-    // Animated.timing(opacity, {
-    // toValue: 0,
-    // duration: 2000,
-    // useNativeDriver: true,
-    // }).start(() => {
-    // setIsClicked(false);
-    // Animated.timing(opacity, {
-    // toValue: 1,
-    // duration: 2000,
-    // useNativeDriver: true,
-    // }).start();
-    // });
     Animated.parallel([
       Animated.timing(scale, {
         toValue: 0,
@@ -50,9 +38,8 @@ const SpinningWheel = ({ navigation }) => {
       setIsClicked(false);
       scale.setValue(1);
       opacity.setValue(1);
+      navigation.navigate('ResultScreen');
     });
-
-    // navigation.navigate('ResultScreen');
   };
 
   const startAnimation = () => {
@@ -79,11 +66,11 @@ const SpinningWheel = ({ navigation }) => {
     <SafeAreaView style={[tw`flex-1 items-center`, { marginTop: StatusBar.currentHeight }]}>
       <View style={tw`h-1/6  flex-row items-center justify-center `}>
         <Text style={tw`text-2xl font-bold p-1 `}>နတ်မျက်စိ ဗေဒင်</Text>
-        <TouchableOpacity activeOpacity={1} onPress={toggleTheme}>
+        <TouchableOpacity testID="themeButton" activeOpacity={1} onPress={toggleTheme}>
           {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" size={40} color="#000" />
+            <Fontisto name="day-sunny" testID="day-sunny" size={40} color="#000" />
           ) : (
-            <MaterialIcons name="nightlight-round" size={40} color="#000" />
+            <MaterialIcons name="nightlight-round" testID="nightlight" size={40} color="#000" />
           )}
         </TouchableOpacity>
       </View>

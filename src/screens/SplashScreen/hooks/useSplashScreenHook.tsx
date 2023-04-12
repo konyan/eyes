@@ -19,7 +19,9 @@ const useSplashScreenHook = ({ image }: useSplashScreenHookProps) => {
   const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
 
   const [fontsLoaded] = useFonts({
-    'Arce-Thin': require('../../../../assets/fonts/acre-mm.otf'),
+    'arce-bold': require('../../../../assets/fonts/acremm-bold.ttf'),
+    'arce-thin': require('../../../../assets/fonts/acremm-thin.ttf'),
+    'arce-regular': require('../../../../assets/fonts/acremm-regular.ttf'),
   });
 
   useEffect(() => {

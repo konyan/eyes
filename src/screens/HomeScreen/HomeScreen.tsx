@@ -1,7 +1,5 @@
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
-import { HomeScreenNavigationProps } from '@routes';
 import React, { useContext, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from 'react-native-paper';
@@ -12,9 +10,7 @@ import tw from 'twrnc';
 
 const chipData = ['ကျန်းမာရေး', 'စီးပွားရေး', 'လူမှုရေး', 'အချစ်ရေး', 'အိမ်ထောင်ရေး'];
 
-const HomeScreen = () => {
-  const navigation = useNavigation<HomeScreenNavigationProps>();
-
+const HomeScreen = ({ navigation }) => {
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [selected, setSelected] = useState<string[]>([]);
 
@@ -32,11 +28,11 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={tw`flex-1 `}>
       <View style={tw`h-1/6 items-end`}>
-        <TouchableOpacity activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
+        <TouchableOpacity testID="theme-icon" activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
           {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" size={40} color="#000" />
+            <Fontisto testID="hee" name="day-sunny" size={40} color="#000" />
           ) : (
-            <MaterialIcons name="nightlight-round" size={40} color="#000" />
+            <MaterialIcons testID="hee" name="nightlight-round" size={40} color="#000" />
           )}
         </TouchableOpacity>
       </View>

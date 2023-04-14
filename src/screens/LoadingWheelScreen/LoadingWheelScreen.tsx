@@ -14,7 +14,7 @@ const SpinningWheel = ({ navigation }) => {
   const opacity = useMemo(() => new Animated.Value(1), []);
   const scale = useMemo(() => new Animated.Value(1), []);
 
-  const injectWebStyles = Platform.OS === 'web' ? 'w-full h-1/2' : 'w-max h-1/2';
+  const injectWebStyles = Platform.OS === 'web' ? 'w-full h-1/2' : 'w-full h-1/2';
 
   const rotate = (value: number) => {
     setAngle(value);

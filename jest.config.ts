@@ -21,6 +21,10 @@ const untranspiledModulePatterns = [
 
 const config: Config.InitialOptions = {
   preset: 'jest-expo',
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+  },
   transformIgnorePatterns: [`node_modules/(?!${untranspiledModulePatterns.join('|')})`],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   setupFilesAfterEnv: ['<rootDir>/testing/jest-setup.ts'],

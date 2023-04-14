@@ -1,6 +1,7 @@
 import Entypo from '@expo/vector-icons/Entypo';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import SearchInput from 'src/components/SearchInput/SearchInput';
@@ -16,14 +17,13 @@ const ListItem = ({ title, goToLoading }: { title: string; goToLoading: () => vo
 
 const iconData = new Array(5).fill('');
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
+  const navigation = useNavigation();
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [text, setText] = useState<string>('');
   // const navigation = useNavigation<SearchScreenNavigationProps>();
 
   const { eyes } = useSearchHook();
-
-  console.log('EYE', eyes);
 
   const goToLoading = () => {
     navigation.navigate('LoadingWheelScreen');

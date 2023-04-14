@@ -2,10 +2,15 @@ import { render } from '@testing-library/react-native';
 import React from 'react';
 import LoadingWheelScreen from './LoadingWheelScreen';
 
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => ({
+    navigate: jest.fn(),
+  }),
+}));
+
 describe('LoadingWheelScreen', () => {
-  const navigation = jest.fn();
   it('renders correctly', () => {
-    const { getByText } = render(<LoadingWheelScreen navigation={navigation} />);
+    const { getByText } = render(<LoadingWheelScreen />);
     expect(getByText('နတ်မျက်စိ ဗေဒင်')).toBeDefined();
   });
 

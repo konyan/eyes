@@ -1,12 +1,13 @@
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useMemo, useState } from 'react';
 import { Animated, Image, Platform, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { GradientButton } from 'src/components';
 import tw from 'twrnc';
 import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
-const SpinningWheel = ({ navigation }) => {
+const SpinningWheel = () => {
   const [angle, setAngle] = useState(0);
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [isClicked, setIsClicked] = useState(false);
@@ -14,7 +15,9 @@ const SpinningWheel = ({ navigation }) => {
   const opacity = useMemo(() => new Animated.Value(1), []);
   const scale = useMemo(() => new Animated.Value(1), []);
 
-  const injectWebStyles = Platform.OS === 'web' ? 'w-full h-1/2' : 'w-max h-1/2';
+  const injectWebStyles = Platform.OS === 'web' ? 'w-full h-1/2' : 'w-full h-1/2';
+
+  const navigation = useNavigation();
 
   const rotate = (value: number) => {
     setAngle(value);

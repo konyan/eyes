@@ -1,11 +1,11 @@
 export const fontConfig = {
   bodyLarge: {
-    fontFamily: 'TheFuture-Medium',
+    fontFamily: 'arce-bold',
   },
-  headlineLarge: {
-    fontFamily: 'FeatureDeck-Regular',
+  bodySmall: {
+    fontFamily: 'arce-thin',
   },
-  fontFamily: 'TheFuture-Regular',
+  fontFamily: 'arce-regular',
 };
 
 export default fontConfig;

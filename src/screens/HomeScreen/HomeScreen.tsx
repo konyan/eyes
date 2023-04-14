@@ -3,7 +3,8 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProps } from '@routes';
 import React, { useContext, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import { Text } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChipButton, GradientButton } from 'src/components';
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
@@ -39,8 +40,10 @@ const HomeScreen = () => {
           )}
         </TouchableOpacity>
       </View>
-      <View style={tw`h-1/6 items-center`}>
-        <Text style={tw`text-3xl font-bold p-1`}>နတ်မျက်စိ ဗေဒင်</Text>
+      <View style={tw`items-center`}>
+        <Text variant="bodyLarge" style={tw`text-2xl p-2`}>
+          နတ်မျက်စိ ဗေဒင်
+        </Text>
       </View>
       <View style={tw` justify-center items-center h-1/3`}>
         <View style={tw`flex-row flex-wrap justify-center items-center`}>

@@ -26,9 +26,9 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={tw`flex-1 `}>
-      <View style={tw`h-1/6 items-end`}>
-        <TouchableOpacity testID="theme-icon" activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
+    <SafeAreaView style={tw`flex-1`}>
+      <View style={tw`h-1/6 items-end justify-center`}>
+        <TouchableOpacity testID="theme-icon" activeOpacity={1} onPress={toggleTheme} style={tw`px-10`}>
           {themeValue === 'dark' ? (
             <Fontisto testID="hee" name="day-sunny" size={40} color="#000" />
           ) : (

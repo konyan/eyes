@@ -1,7 +1,5 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
 import React from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
-import tw from 'twrnc';
+import { TextInput } from 'react-native-paper';
 
 type SearchInputProps = {
   handleChange: (text: string) => void;
@@ -11,14 +9,16 @@ type SearchInputProps = {
 
 const SearchInput = ({ handleChange, value, handleClear }: SearchInputProps) => {
   return (
-    <View style={[tw`flex-row items-center border border-gray-500 rounded-full py-2 px-4 mb-4 shadow bg-white`]}>
-      <TextInput style={tw`flex-1 text-lg`} placeholder="ရှာရန်..." onChangeText={handleChange} value={value} />
-      {value.length > 0 && (
-        <TouchableOpacity testID="clear-button" onPress={handleClear}>
-          <AntDesign name="close" size={18} color="#333" />
-        </TouchableOpacity>
-      )}
-    </View>
+    <TextInput
+      label="ရှာရန်"
+      onChangeText={handleChange}
+      value={value}
+      right={value.length > 0 && <TextInput.Icon icon="close" testID="clear-button" onPress={handleClear} />}
+      selectionColor="#E7E0EC"
+      outlineColor="#000"
+      mode="outlined"
+      outlineStyle={{ borderRadius: 20, backgroundColor: '#e7e0ec' }}
+    />
   );
 };
 

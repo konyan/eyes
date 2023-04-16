@@ -1,9 +1,8 @@
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useMemo, useState } from 'react';
-import { Animated, Image, Platform, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import { GradientButton } from 'src/components';
+import { Animated, Image, Platform, SafeAreaView, StatusBar, View } from 'react-native';
+import { Text } from 'react-native-paper';
+import { GradientButton, HeaderSection } from 'src/components';
 import tw from 'twrnc';
 import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
@@ -66,30 +65,25 @@ const SpinningWheel = () => {
   };
 
   return (
-    <SafeAreaView style={[tw`flex-1 items-center`, { marginTop: StatusBar.currentHeight }]}>
-      <View style={tw`h-1/6  flex-row items-center justify-center `}>
-        <Text style={tw`text-2xl font-bold p-1 `}>နတ်မျက်စိ ဗေဒင်</Text>
-        <TouchableOpacity testID="themeButton" activeOpacity={1} onPress={toggleTheme}>
-          {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" testID="day-sunny" size={40} color="#000" />
-          ) : (
-            <MaterialIcons name="nightlight-round" testID="nightlight" size={40} color="#000" />
-          )}
-        </TouchableOpacity>
-      </View>
-      <Image
-        source={require('../../../assets/splash.png')}
-        resizeMode="contain"
-        style={[tw`${injectWebStyles}`, { transform: [{ rotate: `${angle}deg` }] }]}
-      />
-      <Text style={tw`text-xl font-black tracking-widest my-10`}>ယုံကြည်စွာဖြင့်ဆုတောင်းရန် နှိပ်ပါ</Text>
-      {isClicked ? (
-        <Animated.View style={{ transform: [{ scale }], opacity }}>
+    <SafeAreaView style={[tw`flex-1`, { marginTop: StatusBar.currentHeight }]}>
+      <HeaderSection />
+      <View style={tw`flex-1 items-center`}>
+        <Image
+          source={require('../../../assets/splash.png')}
+          resizeMode="contain"
+          style={[tw`${injectWebStyles}`, { transform: [{ rotate: `${angle}deg` }] }]}
+        />
+        <Text variant="bodyMedium" style={tw`text-xl  my-10 py-1`}>
+          ယုံကြည်စွာဖြင့်ဆုတောင်းရန် နှိပ်ပါ
+        </Text>
+        {isClicked ? (
+          <Animated.View style={{ transform: [{ scale }], opacity }}>
+            <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
+          </Animated.View>
+        ) : (
           <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
-        </Animated.View>
-      ) : (
-        <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
-      )}
+        )}
+      </View>
     </SafeAreaView>
   );
 };

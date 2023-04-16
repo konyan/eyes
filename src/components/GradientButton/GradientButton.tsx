@@ -1,6 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import * as React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import { Text } from 'react-native-paper';
 import tw from 'twrnc';
 
 type GradientButtonProps = {
@@ -13,7 +14,9 @@ const GradientButton = ({ onPress, text }: GradientButtonProps) => {
     <View>
       <LinearGradient colors={['#B23BF3', '#8848F8']} start={[1, 1]} end={[0, 0]} style={tw`rounded-3xl shadow-md`}>
         <TouchableOpacity activeOpacity={0.8} onPress={onPress} testID="BUTTON" style={tw`p-5`}>
-          <Text style={tw`text-base font-semibold tracking-widest	 text-white px-5	`}>{text}</Text>
+          <Text style={tw`text-base font-semibold tracking-widest	text-white px-5`} variant="bodyMedium">
+            {text}
+          </Text>
         </TouchableOpacity>
       </LinearGradient>
     </View>

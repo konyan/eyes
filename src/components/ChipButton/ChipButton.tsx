@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { Chip } from 'react-native-paper';
+import { View } from 'react-native';
+import { Chip, Text } from 'react-native-paper';
 import tw from 'twrnc';
 
 type ChipButtonProps = {
@@ -18,9 +18,9 @@ const ChipButton = ({ onPress, text, selected }: ChipButtonProps) => {
         selected={selected}
         testID="chipButton-test"
         selectedColor="#000"
-        style={tw`shadow border-2  self-start h-[40px] rounded-20 mb-2 mx-2 bg-slate-300 border-[#b6c6d8] 	`}
+        style={tw`shadow border-2  self-start h-[40px] rounded-20 mb-2 mx-2 bg-slate-300 border-[#b6c6d8]`}
       >
-        <Text style={tw`text-[12px] text-black`}>{text}</Text>
+        <Text variant="bodyMedium">{text}</Text>
       </Chip>
     </View>
   );

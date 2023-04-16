@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 const useSearchHook = () => {
   const [eyes, setEyes] = useState();
+
   useEffect(() => {
     getList();
   }, []);

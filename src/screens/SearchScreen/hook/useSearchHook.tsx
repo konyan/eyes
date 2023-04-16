@@ -1,8 +1,15 @@
 import { getEyesList } from '@core';
 import { useEffect, useState } from 'react';
 
+type eyeDataProps = {
+  id: number;
+  question: string;
+  type: string;
+  answers: string[];
+};
+
 const useSearchHook = () => {
-  const [eyes, setEyes] = useState();
+  const [eyes, setEyes] = useState<eyeDataProps[]>([]);
 
   useEffect(() => {
     getList();
@@ -13,7 +20,7 @@ const useSearchHook = () => {
     setEyes(data);
   };
 
-  return { eyes };
+  return { eyes, setEyes };
 };
 
 export default useSearchHook;

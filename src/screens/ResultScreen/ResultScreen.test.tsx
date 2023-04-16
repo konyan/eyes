@@ -3,6 +3,18 @@ import React from 'react';
 import { Linking } from 'react-native';
 import ResultScreen from './ResultScreen';
 
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => ({
+    navigate: jest.fn(),
+  }),
+  useRoute: jest.fn(() => ({
+    params: {
+      result: 'test result',
+      question: 'test question',
+    },
+  })),
+}));
+
 describe('ResultScreen', () => {
   const setupUI = () => render(<ResultScreen />);
 

@@ -1,14 +1,17 @@
-import { useContext, useState } from 'react';
+import { useRoute } from '@react-navigation/native';
+import { ResultScreenRouteProp } from '@routes';
+import { useState } from 'react';
 import { Linking, SafeAreaView, StatusBar, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 import { GradientButton, HeaderSection } from 'src/components';
 import tw from 'twrnc';
-import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
 const ResultScreen = () => {
   const [fbShareURL, setfbShareURL] = useState('https://reactnativecode.com');
   const [content, setContent] = useState('Hello, Welcome To our Website.');
-  const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
+  const route = useRoute<ResultScreenRouteProp>();
+  const { result, question } = route.params;
+  const { colors } = useTheme();
 
   const publishOnFB = () => {
     const params = [];
@@ -25,19 +28,20 @@ const ResultScreen = () => {
         tw`flex-1`,
         {
           marginTop: StatusBar.currentHeight,
+          backgroundColor: colors.bg_primary,
         },
       ]}
     >
       <HeaderSection />
       <View style={tw`flex-1 items-center`}>
         <View testID="ques" style={tw`h-1/5 justify-center m-2`}>
-          <Text variant="bodyMedium" style={tw`text-center text-xl font-semibold  p-2`}>
-            မကြာမီ အိမ်ပြောင်းရမှာလား။
+          <Text variant="bodyMedium" style={[tw`text-center text-xl font-semibold  p-2`, { color: colors.primary }]}>
+            {question}
           </Text>
         </View>
         <View testID="ans" style={tw`h-1/3 justify-center m-2	`}>
-          <Text variant="bodyMedium" style={tw`text-center text-2xl p-2 font-normal`}>
-            သတ္တိရှိဖို့တော့လိုတယ်။ ဒါပေမယ့် ဘယ်နေရာမျိုးမှာမဆိုအကျိုးရှိမယ်။
+          <Text variant="bodyMedium" style={[tw`text-center text-2xl p-2 font-normal`, { color: colors.primary }]}>
+            {result}
           </Text>
         </View>
         <GradientButton onPress={publishOnFB} text="မျှဝေမည်" />

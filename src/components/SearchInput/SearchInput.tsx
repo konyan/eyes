@@ -11,6 +11,7 @@ const SearchInput = ({ handleChange, value, handleClear }: SearchInputProps) => 
   return (
     <TextInput
       label="ရှာရန်"
+      testID="textInput-test"
       onChangeText={handleChange}
       value={value}
       right={value.length > 0 && <TextInput.Icon icon="close" testID="clear-button" onPress={handleClear} />}

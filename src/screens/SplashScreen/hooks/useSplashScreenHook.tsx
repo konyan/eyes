@@ -1,9 +1,9 @@
-import { auth } from '@core';
+import { auth, saveAnnoUserId } from '@core';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { signInAnonymously } from 'firebase/auth';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Animated } from 'react-native';
+import { Alert, Animated } from 'react-native';
 
 type useSplashScreenHookProps = {
   image: { uri: string };
@@ -45,13 +45,12 @@ const useSplashScreenHook = ({ image }: useSplashScreenHookProps) => {
   const getUser = () => {
     signInAnonymously(auth)
       .then((user) => {
-        // Signed in..
-        console.log('EO', user.user.uid);
+        saveAnnoUserId(user.user.uid);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('ERROR', errorCode, errorMessage);
+        Alert.alert('Error', errorMessage);
       });
   };
 

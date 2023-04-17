@@ -1,3 +1,4 @@
+import { SearchInput } from '@components';
 import { Icons } from '@core';
 import Entypo from '@expo/vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
@@ -6,7 +7,6 @@ import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
 import useSearchHook from './hook/useSearchHook';
-import { SearchInput } from '@components';
 
 const ListItem = ({ title, goToLoading }: { title: string; goToLoading: () => void }) => (
   <TouchableOpacity activeOpacity={0.8} style={tw`bg-white p-4 rounded-2xl	 shadow mb-4 mx-0.5`} onPress={goToLoading}>

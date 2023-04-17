@@ -1,6 +1,5 @@
-import Constants from 'expo-constants';
-
-const API_URL = Constants?.expoConfig?.extra?.API_URL;
+// const API_URL = Constants?.expoConfig?.extra?.API_URL;
+const API_URL = 'https://us-central1-donation-887a7.cloudfunctions.net/app';
 
 const getEyesListByFilter = async (filter: number) => {
   try {

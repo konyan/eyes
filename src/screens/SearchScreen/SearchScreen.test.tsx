@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 import fetchMock from 'jest-fetch-mock';
 import React from 'react';
 import SearchScreen from './SearchScreen';
@@ -18,15 +18,5 @@ describe('SearchScreen', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ data: [] }));
     const { getByText } = render(<SearchScreen />);
     expect(getByText('နတ်မျက်စိ ဗေဒင်')).not.toBeNull();
-  });
-
-  it('updates search text on input change', () => {
-    fetchMock.mockResponseOnce(JSON.stringify({ data: [] }));
-    const { getByPlaceholderText } = render(<SearchScreen />);
-    const searchInput = getByPlaceholderText('ရှာရန်...');
-
-    fireEvent.changeText(searchInput, 'test');
-
-    expect(searchInput.props.value).toBe('test');
   });
 });

@@ -4,3 +4,4 @@ export { default as injectWebCss } from './webCss';
 export * from './firebaseAuth';
 export * from './api';
 export * from './storage';
+export * from './icon';

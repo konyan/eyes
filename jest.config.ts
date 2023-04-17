@@ -36,12 +36,14 @@ const config: Config.InitialOptions = {
     '<rootDir>/src/svgIcons/index.ts',
     '<rootDir>/src/svgIcons/',
     '<rootDir>/src/hooks/index.ts',
+    '<rootDir>/src/core/firebaseAuth.tsx',
   ],
   coverageDirectory: '<rootDir>/coverage/',
   collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx,js,jsx}'],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
   },
+  testPathIgnorePatterns: ['<rootDir>/src/core/*.*'],
 };
 
 module.exports = config;

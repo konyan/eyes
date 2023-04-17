@@ -19,6 +19,7 @@ const useSplashScreenHook = ({ image }: useSplashScreenHookProps) => {
   const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
 
   const [fontsLoaded] = useFonts({
+    IcoMoon: require('../../../../assets/icons/icomoon.ttf'),
     'arce-bold': require('../../../../assets/fonts/acremm-bold.ttf'),
     'arce-thin': require('../../../../assets/fonts/acremm-thin.ttf'),
     'arce-regular': require('../../../../assets/fonts/acremm-regular.ttf'),

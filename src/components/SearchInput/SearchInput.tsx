@@ -15,7 +15,11 @@ const SearchInput = ({ handleChange, value, handleClear }: SearchInputProps) => 
       testID="textInput-test"
       onChangeText={handleChange}
       value={value}
-      right={value.length > 0 && <Icons name="trash" testID="clear-button" onPress={handleClear} size={24} />}
+      right={
+        value.length > 0 && (
+          <TextInput.Icon icon={() => <Icons name="trash" size={20} />} testID="clear-button" onPress={handleClear} />
+        )
+      }
       selectionColor="#E7E0EC"
       outlineColor="#000"
       mode="outlined"

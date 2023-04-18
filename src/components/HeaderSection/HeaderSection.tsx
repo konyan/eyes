@@ -9,11 +9,11 @@ const HeaderSection = () => {
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const { colors } = useTheme();
   return (
-    <View style={tw`h-1/6 justify-center bg-slate-500`} testID="headerSection-test">
+    <View style={tw`h-1/6 justify-center`} testID="headerSection-test">
       <View style={tw`px-10 flex-row items-center justify-between`}>
         <View style={tw`items-start flex-1`}></View>
         <View style={tw`items-center`}>
-          <Text style={[tw`text-2xl font-bold p-1 items-center flex-1`, { color: colors.primary }]} variant="bodyLarge">
+          <Text style={[tw`text-2xl font-bold p-1 items-center`, { color: colors.primary }]} variant="bodyLarge">
             နတ်မျက်စိ ဗေဒင်
           </Text>
         </View>

@@ -1,5 +1,4 @@
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Icons } from '@core';
 import { StatusBar } from 'expo-status-bar';
 import React, { useContext, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
@@ -33,9 +32,9 @@ const HomeScreen = ({ navigation }) => {
       <View style={tw`h-1/6 items-end`}>
         <TouchableOpacity testID="theme-icon" activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
           {themeValue === 'dark' ? (
-            <Fontisto testID="hee" name="day-sunny" size={40} color={colors.primary} />
+            <Icons name="moon" size={24} color={colors.primary} />
           ) : (
-            <MaterialIcons testID="hee" name="nightlight-round" size={40} color={colors.primary} />
+            <Icons name="sun" size={24} color={colors.primary} />
           )}
         </TouchableOpacity>
       </View>

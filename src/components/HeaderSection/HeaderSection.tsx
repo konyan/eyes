@@ -9,7 +9,7 @@ const HeaderSection = () => {
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const { colors } = useTheme();
   return (
-    <View style={tw`h-1/6 justify-center`} testID="headerSection-test">
+    <View style={tw`h-1/6 justify-center bg-slate-500`} testID="headerSection-test">
       <View style={tw`px-10 flex-row items-center justify-between`}>
         <View style={tw`items-start flex-1`}></View>
         <View style={tw`items-center`}>
@@ -19,7 +19,11 @@ const HeaderSection = () => {
         </View>
         <View style={tw`items-end	flex-1`}>
           <TouchableOpacity testID="toggleTheme-button" style={tw`items-end`} activeOpacity={0.5} onPress={toggleTheme}>
-            {themeValue === 'dark' ? <Icons name="moon" size={24} /> : <Icons name="sun" size={24} />}
+            {themeValue === 'dark' ? (
+              <Icons name="moon" size={24} color={colors.primary} />
+            ) : (
+              <Icons name="sun" size={24} color={colors.primary} />
+            )}
           </TouchableOpacity>
         </View>
       </View>

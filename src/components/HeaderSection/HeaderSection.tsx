@@ -1,5 +1,4 @@
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Icons } from '@core';
 import React, { useContext } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
@@ -20,11 +19,7 @@ const HeaderSection = () => {
         </View>
         <View style={tw`items-end	flex-1`}>
           <TouchableOpacity testID="toggleTheme-button" style={tw`items-end`} activeOpacity={0.5} onPress={toggleTheme}>
-            {themeValue === 'dark' ? (
-              <Fontisto name="day-sunny" size={40} color={colors.primary} />
-            ) : (
-              <MaterialIcons name="nightlight-round" size={40} color={colors.primary} />
-            )}
+            {themeValue === 'dark' ? <Icons name="moon" size={24} /> : <Icons name="sun" size={24} />}
           </TouchableOpacity>
         </View>
       </View>

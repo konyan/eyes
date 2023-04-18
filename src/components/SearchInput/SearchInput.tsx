@@ -1,4 +1,4 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { Icons } from '@core';
 import React from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 import tw from 'twrnc';
@@ -15,7 +15,7 @@ const SearchInput = ({ handleChange, value, handleClear }: SearchInputProps) => 
       <TextInput style={tw`flex-1 text-lg`} placeholder="ရှာရန်..." onChangeText={handleChange} value={value} />
       {value.length > 0 && (
         <TouchableOpacity testID="clear-button" onPress={handleClear}>
-          <AntDesign name="close" size={18} color="#333" />
+          <Icons name="trash" size={24} />
         </TouchableOpacity>
       )}
     </View>

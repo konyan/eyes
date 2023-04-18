@@ -1,10 +1,9 @@
+import { SearchInput } from '@components';
+import { Icons } from '@core';
 import Entypo from '@expo/vector-icons/Entypo';
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import SearchInput from 'src/components/SearchInput/SearchInput';
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
 import useSearchHook from './hook/useSearchHook';
@@ -21,7 +20,6 @@ const SearchScreen = () => {
   const navigation = useNavigation();
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [text, setText] = useState<string>('');
-  // const navigation = useNavigation<SearchScreenNavigationProps>();
 
   const { eyes } = useSearchHook();
 
@@ -46,26 +44,22 @@ const SearchScreen = () => {
       <View style={tw`h-1/6  flex-row items-center justify-center `}>
         <Text style={tw`text-2xl font-bold p-1 `}>နတ်မျက်စိ ဗေဒင်</Text>
         <TouchableOpacity activeOpacity={1} onPress={toggleTheme}>
-          {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" size={40} color="#000" />
-          ) : (
-            <MaterialIcons name="nightlight-round" size={40} color="#000" />
-          )}
+          {themeValue === 'dark' ? <Icons name="moon" size={24} /> : <Icons name="sun" size={24} />}
         </TouchableOpacity>
       </View>
       <View style={tw`px-10 flex-1`}>
         <SearchInput value={text} handleClear={handleClear} handleChange={setText} />
         <View style={tw`flex-row h-full`}>
-          <View style={tw`w-12 items-center`}>
+          {/* <View style={tw`w-12 items-center`}>
             <FlatList data={iconData} keyExtractor={(_, index) => index.toString()} renderItem={renderItem} />
-          </View>
+          </View> */}
 
           <FlatList
             style={tw`flex-1 pl-2`}
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
             data={eyes}
-            renderItem={({ item }) => <ListItem title={item.ques} goToLoading={goToLoading} />}
+            renderItem={({ item }) => <ListItem title={item.question} goToLoading={goToLoading} />}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>

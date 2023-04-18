@@ -1,5 +1,4 @@
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Icons } from '@core';
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useMemo, useState } from 'react';
 import { Animated, Image, Platform, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
@@ -69,12 +68,8 @@ const SpinningWheel = () => {
     <SafeAreaView style={[tw`flex-1 items-center`, { marginTop: StatusBar.currentHeight }]}>
       <View style={tw`h-1/6  flex-row items-center justify-center `}>
         <Text style={tw`text-2xl font-bold p-1 `}>နတ်မျက်စိ ဗေဒင်</Text>
-        <TouchableOpacity testID="themeButton" activeOpacity={1} onPress={toggleTheme}>
-          {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" testID="day-sunny" size={40} color="#000" />
-          ) : (
-            <MaterialIcons name="nightlight-round" testID="nightlight" size={40} color="#000" />
-          )}
+        <TouchableOpacity activeOpacity={1} onPress={toggleTheme}>
+          {themeValue === 'dark' ? <Icons name="moon" size={24} /> : <Icons name="sun" size={24} />}
         </TouchableOpacity>
       </View>
       <Image

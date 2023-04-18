@@ -17,7 +17,7 @@ const getEyesList = () => {
     .then((json) => {
       return json;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.error(error));
 };
 
 export { getEyesListByFilter, getEyesList };

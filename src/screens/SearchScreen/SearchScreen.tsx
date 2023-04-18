@@ -1,3 +1,4 @@
+import { SearchInput } from '@components';
 import { getEyesListByFilter } from '@core';
 import { Feather, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -6,7 +7,6 @@ import React, { useState } from 'react';
 import { FlatList, SafeAreaView, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
 import { HeaderSection } from 'src/components';
-import SearchInput from 'src/components/SearchInput/SearchInput';
 import tw from 'twrnc';
 import useSearchHook from './hook/useSearchHook';
 
@@ -22,7 +22,6 @@ const SearchScreen = () => {
   const { colors } = useTheme();
 
   const [text, setText] = useState<string>('');
-  // const navigation = useNavigation<SearchScreenNavigationProps>();
 
   const { eyes, setEyes } = useSearchHook();
 

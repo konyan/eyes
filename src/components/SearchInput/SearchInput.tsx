@@ -1,3 +1,4 @@
+import { Icons } from '@core';
 import React from 'react';
 import { TextInput } from 'react-native-paper';
 
@@ -14,7 +15,7 @@ const SearchInput = ({ handleChange, value, handleClear }: SearchInputProps) => 
       testID="textInput-test"
       onChangeText={handleChange}
       value={value}
-      right={value.length > 0 && <TextInput.Icon icon="close" testID="clear-button" onPress={handleClear} />}
+      right={value.length > 0 && <Icons name="trash" testID="clear-button" onPress={handleClear} size={24} />}
       selectionColor="#E7E0EC"
       outlineColor="#000"
       mode="outlined"

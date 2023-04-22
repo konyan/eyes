@@ -10,11 +10,25 @@
       "ios": {
         "resourceClass": "m-medium"
       },
-      "env": {}
+      "env": {
+        "API_URL": "https://us-central1-donation-887a7.cloudfunctions.net/app",
+        "FIREBASE_API_KEY": "AIzaSyB-6oixNjHvqihoPCo0i7v5ONXhvtNqQWk",
+        "FIREBASE_AUTH_DOMAIN": "donation-887a7.firebaseapp.com",
+        "FIREBASE_DATABASE_URL": "https://donation-887a7.firebaseio.com",
+        "FIREBASE_PROJECT_ID": "donation-887a7",
+        "FIREBASE_STORAGE_BUCKET": "donation-887a7.appspot.com",
+        "FIREBASE_MESSAGING_SENDER_ID": "606079671431",
+        "FIREBASE_APP_ID": "1:606079671431:web:68b4348d8f2b9f3d6dac22"
+      }
     },
     "production": {
       "channel": "production",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
       "ios": {
+        "simulator": true,
         "resourceClass": "m-medium"
       },
       "env": {}

@@ -1,6 +1,5 @@
 import { SearchInput } from '@components';
 import { getEyesListByFilter } from '@core';
-import { Feather, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { SearchScreenNavigationProps } from '@routes';
 import React, { useState } from 'react';
@@ -61,26 +60,6 @@ const SearchScreen = () => {
       <View style={tw`px-3 flex-1`}>
         <SearchInput value={text} handleClear={handleClear} handleChange={setText} />
         <View style={tw`flex-row h-full mt-4`}>
-          <View style={tw`w-12 items-center`}>
-            <View style={tw`mb-4`}>
-              <FontAwesome5 name="baby" size={30} color={colors.primary} onPress={() => selectType(1)} />
-            </View>
-            <View style={tw`mb-4`}>
-              <FontAwesome name="dollar" size={30} color={colors.primary} onPress={() => selectType(2)} />
-            </View>
-            <View style={tw`mb-4`}>
-              <FontAwesome name="heartbeat" size={30} color={colors.primary} onPress={() => selectType(3)} />
-            </View>
-            <View style={tw`mb-4`}>
-              <FontAwesome name="group" size={30} color={colors.primary} onPress={() => selectType(4)} />
-            </View>
-            <View style={tw`mb-4`}>
-              <FontAwesome name="heart" size={30} color={colors.primary} onPress={() => selectType(5)} />
-            </View>
-            <View style={tw`mb-4`}>
-              <Feather name="more-horizontal" size={30} color={colors.primary} onPress={() => selectType(6)} />
-            </View>
-          </View>
           <FlatList
             style={tw`flex-1 pl-2`}
             showsVerticalScrollIndicator={false}

@@ -6,7 +6,7 @@ import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
 
 const HeaderSection = () => {
-  const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
+  const { themeValue, toggleTheme } = useContext(ThemeContext);
   const { colors } = useTheme();
   return (
     <View style={tw`h-1/6 justify-center`} testID="headerSection-test">

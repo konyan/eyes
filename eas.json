@@ -4,22 +4,27 @@
   },
   "build": {
     "development": {
+      "channel": "development",
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
         "resourceClass": "m-medium"
-      }
-    },
-    "preview": {
-      "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      },
+      "env": {}
     },
     "production": {
+      "channel": "production",
       "ios": {
         "resourceClass": "m-medium"
-      }
+      },
+      "env": {}
+    },
+    "release": {
+      "channel": "release",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "env": {}
     }
   },
   "submit": {

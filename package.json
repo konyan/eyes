@@ -13,7 +13,16 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check ./src/",
     "test": "jest",
-    "test:coverage": "jest --clear-cache && jest --coverage --logHeapUsage --maxConcurrency=4 --detectOpenHandles --runInBand"
+    "test:coverage": "jest --clear-cache && jest --coverage --logHeapUsage --maxConcurrency=4 --detectOpenHandles --runInBand",
+    "build-android:dev": "eas build -p android --profile development",
+    "build-android:prod": "eas build -p android --profile production",
+    "build-android:release": "eas build -p android --profile release",
+    "build-ios:dev": "eas build -p ios --profile development",
+    "build-ios:prod": "eas build -p ios --profile production",
+    "build-ios:release": "eas build -p ios --profile release",
+    "submit-android": "",
+    "submit-ios": "",
+    "ota-release": "eas update --branch release --auto"
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
@@ -27,6 +36,7 @@
     "expo-linking": "~4.0.1",
     "expo-splash-screen": "~0.18.1",
     "expo-status-bar": "~1.4.4",
+    "expo-updates": "~0.16.4",
     "firebase": "^9.19.0",
     "jest-expo": "^48.0.2",
     "jest-fetch-mock": "^3.0.3",

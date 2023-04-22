@@ -14,5 +14,8 @@ module.exports = ({ config }: { config: ExpoConfig }) => ({
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+    eas: {
+      projectId: '2841679c-e681-4f81-b79d-5f738f853640',
+    },
   },
 });

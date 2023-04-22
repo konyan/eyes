@@ -1,22 +1,19 @@
-import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
-import { HomeScreenNavigationProps } from '@routes';
+import { Icons } from '@core';
+import { StatusBar } from 'expo-status-bar';
 import React, { useContext, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChipButton, GradientButton } from 'src/components';
+import { ChipText, GradientButton } from 'src/components';
 import { ThemeContext } from 'src/context/ThemeContext/ThemeContext';
 import tw from 'twrnc';
 
-const chipData = ['ကျန်းမာရေး', 'စီးပွားရေး', 'လူမှုရေး', 'အချစ်ရေး', 'အိမ်ထောင်ရေး'];
+const categories = ['အိမ်ထောင်ရေး', 'စီးပွားရေး', 'ကျန်းမာရေး', 'လူမှုရေး', 'အချစ်ရေး', 'အခြား'];
 
-const HomeScreen = () => {
-  const navigation = useNavigation<HomeScreenNavigationProps>();
-
+const HomeScreen = ({ navigation }) => {
   const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [selected, setSelected] = useState<string[]>([]);
+  const { colors } = useTheme();
 
   const handleChipSelect = (chip: string) => {
     if (selected.includes(chip)) {
@@ -30,30 +27,26 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView style={tw`flex-1 `}>
+    <SafeAreaView style={[tw`flex-1 `, { backgroundColor: colors.bg_primary }]}>
+      <StatusBar style="auto" backgroundColor={colors.bg_primary} />
       <View style={tw`h-1/6 items-end`}>
-        <TouchableOpacity activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
+        <TouchableOpacity testID="theme-icon" activeOpacity={1} onPress={toggleTheme} style={tw`m-6 pr-4`}>
           {themeValue === 'dark' ? (
-            <Fontisto name="day-sunny" size={40} color="#000" />
+            <Icons name="moon" size={24} color={colors.primary} />
           ) : (
-            <MaterialIcons name="nightlight-round" size={40} color="#000" />
+            <Icons name="sun" size={24} color={colors.primary} />
           )}
         </TouchableOpacity>
       </View>
       <View style={tw`items-center`}>
-        <Text variant="bodyLarge" style={tw`text-2xl p-2`}>
+        <Text variant="bodyLarge" style={[tw`text-2xl p-2`, { color: colors.primary }]}>
           နတ်မျက်စိ ဗေဒင်
         </Text>
       </View>
       <View style={tw` justify-center items-center h-1/3`}>
         <View style={tw`flex-row flex-wrap justify-center items-center`}>
-          {chipData.map((chip, index) => (
-            <ChipButton
-              onPress={() => handleChipSelect(chip)}
-              selected={selected.includes(chip)}
-              key={index}
-              text={chip}
-            />
+          {categories.map((category, index) => (
+            <ChipText key={index} text={category} />
           ))}
         </View>
       </View>

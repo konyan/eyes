@@ -1,5 +1,7 @@
+import { darkTheme, lightTheme } from '@core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useCallback, useEffect, useState } from 'react';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 type ThemeContextProps = {
   themeValue: string | null;
@@ -65,7 +67,11 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     setTheme(newTheme);
   };
 
-  return <ThemeContext.Provider value={{ themeValue, toggleTheme, getTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ themeValue, toggleTheme, getTheme }}>
+      <PaperProvider theme={themeValue === 'dark' ? darkTheme : lightTheme}>{children}</PaperProvider>
+    </ThemeContext.Provider>
+  );
 };
 
 export default ThemeProvider;

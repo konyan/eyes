@@ -6,6 +6,12 @@ jest.mock('@react-navigation/native', () => ({
   useNavigation: () => ({
     navigate: jest.fn(),
   }),
+  useRoute: jest.fn(() => ({
+    params: {
+      result: 'test result',
+      question: 'test question',
+    },
+  })),
 }));
 
 describe('LoadingWheelScreen', () => {
@@ -15,11 +21,11 @@ describe('LoadingWheelScreen', () => {
   });
 
   // it('handles button click', () => {
-  // // const { getByTestId } = render(<LoadingWheelScreen navigation={navigation} />);
-
+  // const { getByTestId } = render(<LoadingWheelScreen />);
+  //
   // const button = getByTestId('BUTTON');
   // fireEvent.press(button);
-
-  // expect(button).toHaveBeenCalledWith('ResultScreen');
+  //
+  // expect(button).toHaveBeenCalled();
   // });
 });

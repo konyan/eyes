@@ -12,20 +12,25 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "entryPoint": "entry.js",
     "updates": {
       "url": "https://u.expo.dev/2841679c-e681-4f81-b79d-5f738f853640"
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "config": {
         "usesNonExemptEncryption": false
       },
       "entitlements": {
-        "com.apple.developer.applesignin": ["Default"]
+        "com.apple.developer.applesignin": [
+          "Default"
+        ]
       },
       "buildNumber": "1.0.0",
       "bundleIdentifier": "com.digithouse.baydinsayar"
@@ -35,7 +40,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "versionCode": 1,
+      "versionCode": 3,
       "package": "com.digithouse.baydinsayar"
     },
     "web": {

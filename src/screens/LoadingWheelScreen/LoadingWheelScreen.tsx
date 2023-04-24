@@ -1,22 +1,28 @@
-import { Icons } from '@core';
-import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useMemo, useState } from 'react';
-import { Animated, Image, Platform, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import { GradientButton } from 'src/components';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { LoadingWheelScreenNavigationProps, LoadingWheelScreenRouteProp } from '@routes';
+import React, { useMemo, useState } from 'react';
+import { Animated, Image, ImageProps, Platform, SafeAreaView, StatusBar, View } from 'react-native';
+import { Text, useTheme } from 'react-native-paper';
+import { GradientButton, HeaderSection } from 'src/components';
 import tw from 'twrnc';
-import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
-const SpinningWheel = () => {
+interface MyImageProps extends Omit<ImageProps, 'source'> {
+  source: number | { uri: string };
+}
+
+const LoadingWheelScreen = () => {
   const [angle, setAngle] = useState(0);
-  const { themeValue, toggleTheme, getTheme } = useContext(ThemeContext);
   const [isClicked, setIsClicked] = useState(false);
   // const opacity = useState(new Animated.Value(1))[0];
   const opacity = useMemo(() => new Animated.Value(1), []);
   const scale = useMemo(() => new Animated.Value(1), []);
+  const { colors } = useTheme();
+  const route = useRoute<LoadingWheelScreenRouteProp>();
+  const { result, question } = route.params;
 
   const injectWebStyles = Platform.OS === 'web' ? 'w-full h-1/2' : 'w-full h-1/2';
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<LoadingWheelScreenNavigationProps>();
 
   const rotate = (value: number) => {
     setAngle(value);
@@ -40,7 +46,7 @@ const SpinningWheel = () => {
       setIsClicked(false);
       scale.setValue(1);
       opacity.setValue(1);
-      navigation.navigate('ResultScreen');
+      navigation.navigate('ResultScreen', { result, question });
     });
   };
 
@@ -65,28 +71,35 @@ const SpinningWheel = () => {
   };
 
   return (
-    <SafeAreaView style={[tw`flex-1 items-center`, { marginTop: StatusBar.currentHeight }]}>
-      <View style={tw`h-1/6  flex-row items-center justify-center `}>
-        <Text style={tw`text-2xl font-bold p-1 `}>နတ်မျက်စိ ဗေဒင်</Text>
-        <TouchableOpacity activeOpacity={1} onPress={toggleTheme}>
-          {themeValue === 'dark' ? <Icons name="moon" size={24} /> : <Icons name="sun" size={24} />}
-        </TouchableOpacity>
-      </View>
-      <Image
-        source={require('../../../assets/splash.png')}
-        resizeMode="contain"
-        style={[tw`${injectWebStyles}`, { transform: [{ rotate: `${angle}deg` }] }]}
-      />
-      <Text style={tw`text-xl font-black tracking-widest my-10`}>ယုံကြည်စွာဖြင့်ဆုတောင်းရန် နှိပ်ပါ</Text>
-      {isClicked ? (
-        <Animated.View style={{ transform: [{ scale }], opacity }}>
+    <SafeAreaView
+      style={[
+        tw`flex-1`,
+        {
+          marginTop: StatusBar.currentHeight,
+          backgroundColor: colors.bg_primary,
+        },
+      ]}
+    >
+      <HeaderSection />
+      <View style={tw`flex-1 items-center`}>
+        <Image
+          source={require('../../../assets/splash.png')}
+          resizeMode="contain"
+          style={[tw`${injectWebStyles}`, { transform: [{ rotate: `${angle}deg` }] }]}
+        />
+        <Text variant="bodyMedium" style={[tw`text-xl  my-10 py-1`, { color: colors.primary }]}>
+          ယုံကြည်စွာဖြင့်ဆုတောင်းရန် နှိပ်ပါ
+        </Text>
+        {isClicked ? (
+          <Animated.View style={{ transform: [{ scale }], opacity }}>
+            <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
+          </Animated.View>
+        ) : (
           <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
-        </Animated.View>
-      ) : (
-        <GradientButton onPress={handleClick} text="ဗေဒင်မေးမည်" />
-      )}
+        )}
+      </View>
     </SafeAreaView>
   );
 };
 
-export default SpinningWheel;
+export default LoadingWheelScreen;

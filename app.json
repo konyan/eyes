@@ -1,7 +1,7 @@
 {
   "expo": {
-    "scheme": "mmbaydin",
-    "name": "mmbaydin",
+    "scheme": "baydinsayar",
+    "name": "baydinsayar",
     "slug": "mm-baydin",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,23 +12,34 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "url": "https://u.expo.dev/2841679c-e681-4f81-b79d-5f738f853640"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "com.apple.developer.applesignin": ["Default"]
+      },
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "com.digithouse.baydinsayar"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "versionCode": 1,
+      "package": "com.digithouse.baydinsayar"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "2841679c-e681-4f81-b79d-5f738f853640"
-      }
     },
     "owner": "digithouse"
   }

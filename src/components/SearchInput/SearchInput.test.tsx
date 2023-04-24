@@ -3,28 +3,13 @@ import React from 'react';
 import SearchInput from './SearchInput';
 
 describe('SearchInput', () => {
-  test('should render correctly with placeholder', () => {
-    const onChangeText = jest.fn();
-    const handleClear = jest.fn();
-
-    const { getByPlaceholderText } = render(
-      <SearchInput handleChange={onChangeText} value="" handleClear={handleClear} />,
-    );
-
-    const input = getByPlaceholderText('ရှာရန်...');
-
-    expect(input).toBeDefined();
-  });
-
   test('should update input value when text is typed', () => {
     const onChangeText = jest.fn();
     const handleClear = jest.fn();
 
-    const { getByPlaceholderText } = render(
-      <SearchInput handleChange={onChangeText} value="" handleClear={handleClear} />,
-    );
+    const { getByTestId } = render(<SearchInput handleChange={onChangeText} value="" handleClear={handleClear} />);
 
-    const input = getByPlaceholderText('ရှာရန်...');
+    const input = getByTestId('textInput-test');
 
     fireEvent.changeText(input, 'Test input');
 

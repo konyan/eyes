@@ -5,6 +5,9 @@ export const fontConfig = {
   bodySmall: {
     fontFamily: 'arce-thin',
   },
+  bodyMedium: {
+    fontFamily: 'arce-regular',
+  },
   fontFamily: 'arce-regular',
 };
 

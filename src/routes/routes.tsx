@@ -15,6 +15,23 @@ export const Routes = () => {
         <Stack.Navigator
           screenOptions={{
             gestureEnabled: Platform.OS === 'ios',
+            cardStyle: { backgroundColor: 'rgba(0,0,0,0.5)' },
+            cardStyleInterpolator: ({ current: { progress } }) => ({
+              cardStyle: {
+                opacity: progress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, 1],
+                }),
+              },
+              overlayStyle: {
+                opacity: progress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, 1],
+                  extrapolate: 'clamp',
+                }),
+                backgroundColor: 'rgba(0, 0, 0, .5)',
+              },
+            }),
           }}
           initialRouteName="HomeScreen"
         >
